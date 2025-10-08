@@ -36,13 +36,13 @@ def agregar_marca_aerop(row):
         ).add_to(mapa)
 
 ac1,ac2 = st.columns([0.3, 0.7])
-r_Nocturno = ac1.checkbox("Nocturno")
-if r_Nocturno:
-    a_larg = precios[precios['tipohorario']=='Nocturno']
+r_GasOilGrado2 = ac1.checkbox("Gas Oil Grado 2")
+if r_GasOilGrado2:
+    a_larg = precios[precios['producto']=='Gas Oil Grado 2']
     a_larg.apply(agregar_marca_aerop, axis=1)
-r_Diurno = ac1.checkbox("Diurno")
-if r_Diurno:
-    a_med = precios[precios['tipohorario']=='Diurno']
+r_GasOilGrado3= ac1.checkbox("Gas Oil Grado 3")
+if r_GasOilGrado3:
+    a_med = precios[precios['producto']=='Gas Oil Grado 3']
     a_med.apply(agregar_marca_aerop, axis=1)
 
 with ac2:
