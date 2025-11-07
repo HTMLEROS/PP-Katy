@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 
-st.title("informacion de los datos de esta pagina")
+st.title("información de los datos de esta pagina")
 st.header("La información que obtienen en este archivo algunos precios de naftas ,horario de atencion nocturno y de dia como tambien los tipos de gasolina")
 st.image('images/ya.jpeg')
 
