@@ -1,0 +1,195 @@
+{
+  "_signature": "PDLZ_v1::1762959706861",
+  "data": {
+    "variables": [
+      {
+        "id": "193433383",
+        "name": "set"
+      },
+      {
+        "id": "1792893652",
+        "name": "precios"
+      },
+      {
+        "id": "2849364950",
+        "name": "noturno"
+      },
+      {
+        "id": "3378635122",
+        "name": "provincia"
+      },
+      {
+        "id": "3771585511",
+        "name": "tipohorario"
+      },
+      {
+        "id": "3558264501",
+        "name": "cantidad"
+      }
+    ],
+    "csvsData": [
+      {
+        "id": 2379217084,
+        "filename": "precios.csv",
+        "columnsNames": [
+          "indice_tiempo",
+          "idempresa",
+          "cuit",
+          "empresa",
+          "direccion",
+          "localidad",
+          "provincia",
+          "region",
+          "idproducto",
+          "producto",
+          "idtipohorario",
+          "tipohorario",
+          "precio",
+          "fecha_vigencia",
+          "idempresabandera",
+          "empresabandera",
+          "latitud",
+          "longitud",
+          "geojson"
+        ]
+      }
+    ],
+    "blocks": {
+      "blocks": {
+        "languageVersion": 0,
+        "blocks": [
+          {
+            "type": "variables_set",
+            "id": "V._[@FVxBb(tc1dVNv[X",
+            "x": 116,
+            "y": 56,
+            "fields": {
+              "variableSetterKey": "1792893652"
+            },
+            "inputs": {
+              "VALUE": {
+                "block": {
+                  "type": "read_csv",
+                  "id": "|/8@r8i:~3zxH2/]).%[",
+                  "fields": {
+                    "csvOptions": "2379217084"
+                  }
+                }
+              }
+            },
+            "next": {
+              "block": {
+                "type": "variables_set",
+                "id": "FOu??lg+oeau]w!TL,|K",
+                "fields": {
+                  "variableSetterKey": "3558264501"
+                },
+                "inputs": {
+                  "VALUE": {
+                    "block": {
+                      "type": "valueCounts",
+                      "id": "olOaX4QXicUcBw-9,Qxe",
+                      "inputs": {
+                        "VALUE": {
+                          "block": {
+                            "type": "property",
+                            "id": "-zkf:5ByivAmrgwax5!)",
+                            "extraState": {
+                              "selectedOption": "producto"
+                            },
+                            "fields": {
+                              "dropdown": "producto"
+                            },
+                            "inputs": {
+                              "blockInput": {
+                                "block": {
+                                  "type": "variables_get",
+                                  "id": "#Nsbz::S4g}7}VD9Q5-1",
+                                  "fields": {
+                                    "variableGetterKey": "1792893652"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "next": {
+                  "block": {
+                    "type": "showInConsole",
+                    "id": "-m-Agn[Q69]f5GP3n:/9",
+                    "inputs": {
+                      "VALUE": {
+                        "block": {
+                          "type": "pie",
+                          "id": "m@D^:[Q8byZ(A:CryQ9Z",
+                          "inputs": {
+                            "dataFrameValue": {
+                              "block": {
+                                "type": "variables_get",
+                                "id": "C|8d5{TVn+^h5HuE@y?_",
+                                "fields": {
+                                  "variableGetterKey": "3558264501"
+                                }
+                              }
+                            },
+                            "xValue": {
+                              "block": {
+                                "type": "values",
+                                "id": "D4+ECPn2YmRsIO*G@sM7",
+                                "inputs": {
+                                  "argument": {
+                                    "block": {
+                                      "type": "variables_get",
+                                      "id": "P7I6ROmSl%SAB[@9M:n}",
+                                      "fields": {
+                                        "variableGetterKey": "3558264501"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "yValue": {
+                              "block": {
+                                "type": "index",
+                                "id": "bEy;B0|IIbL#Oe9s5)ig",
+                                "inputs": {
+                                  "argument": {
+                                    "block": {
+                                      "type": "variables_get",
+                                      "id": "NZF}Y|Hb@?KZs16V=8:Y",
+                                      "fields": {
+                                        "variableGetterKey": "3558264501"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "title": {
+                              "block": {
+                                "type": "primitive_text",
+                                "id": "Bl.^d0=cjc6{eqt@uWPh",
+                                "fields": {
+                                  "TEXT": "cantidad de registro que hay en cada producto "
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
