@@ -26,58 +26,24 @@ with st.expander("¿Cuáles son los nombres de las columnas  redes?"):
    
     st.write(redes.columns)
 st.image('images/aplicacion.png')
-st.header("Estas imagenes que vez son algunas aplicaciónes más votados en la información de la encuesta")
+st.header(" Estas imagenes que vez son algunas aplicaciónes más votados en la información de la encuesta")
+        
+dataset = pd.read_csv("precios.csv")
+dataset["indice_tiempo"] = pd.to_datetime(dataset["indice_tiempo"], format="%Y-%m")
 
+años = dataset[ dataset["indice_tiempo"].dt.year == 2017 ]
 
-redes= pd.read_csv('uso_digitales_FINAL.csv')
-st.title("Gráfico")
+agrupacion_mes = dataset.groupby(dataset["indice_tiempo"].dt.to_period("M")).size()
+agrupacion_mes 
+
 fig,ax = plt.subplots()
-# Crear el gráfico de barras
-conteo_tipos = redes['instagram'].value_counts()
-conteo_tipos.plot(kind='bar', ax=ax, color='skyblue')
+
+agrupacion_mes.plot(kind='bar', ax=ax, color='skyblue')
 # Agregar etiquetas y título
-ax.set_xlabel('Género')
-ax.set_ylabel('Cantidad')
-ax.set_title('la cantidad de horas que usaron cada uno intagram ')
-
+ax.set_xlabel('mes')
+ax.set_ylabel('año')
+ax.set_title('Cantidad de provincia por tipohorario ')
+#oreco geta datos 
 # Mostrar el gráfico
-st.pyplot(fig)       
+st.pyplot(fig)
 
-redes= pd.read_csv('uso_digitales_FINAL.csv')
-fig,ax = plt.subplots()
-# Crear el gráfico de barras
-conteo_tipos = redes['tiktok'].value_counts()
-conteo_tipos.plot(kind='bar', ax=ax, color='skyblue')
-# Agregar etiquetas y título
-ax.set_xlabel('Género')
-ax.set_ylabel('Cantidad')
-ax.set_title('la cantidad de horas que usaron cada uno tiktok ')
-
-# Mostrar el gráfico
-st.pyplot(fig)       
-
-redes= pd.read_csv('uso_digitales_FINAL.csv')
-fig,ax = plt.subplots()
-# Crear el gráfico de barras
-conteo_tipos = redes['youtube'].value_counts()
-conteo_tipos.plot(kind='bar', ax=ax, color='skyblue')
-# Agregar etiquetas y título
-ax.set_xlabel('Género')
-ax.set_ylabel('Cantidad')
-ax.set_title('la cantidad de horas que usaron cada uno youtube ')
-
-# Mostrar el gráfico
-st.pyplot(fig)       
-
-redes= pd.read_csv('uso_digitales_FINAL.csv')
-fig,ax = plt.subplots()
-# Crear el gráfico de barras
-conteo_tipos = redes['twiter'].value_counts()
-conteo_tipos.plot(kind='bar', ax=ax, color='skyblue')
-# Agregar etiquetas y título
-ax.set_xlabel('Género')
-ax.set_ylabel('Cantidad')
-ax.set_title('la cantidad de horas que usaron cada uno twiter ')
-
-# Mostrar el gráfico
-st.pyplot(fig)       

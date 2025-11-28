@@ -14,9 +14,9 @@ with st.expander("¿Cuántas filas y columnas tiene el dataset?"):
 nombres_ubic = precios['producto'].unique()
 cant_ubic = len(precios['producto'].unique())
 
-with st.expander("¿Cuántos son los valores únicos de la columna **producto**?"):
+with st.expander("¿Cuántos son los valores únicos de la columna **indice_tiempo**?"):
     st.write(cant_ubic)
-with st.expander("¿Cuáles son los valores únicos de la columna **producto**?"):
+with st.expander("¿Cuáles son los valores únicos de la columna **indice_tiempo**?"):
     st.write(nombres_ubic)
 with st.expander("¿Cuáles son los nombres de las columnas  precios?"):
    
